@@ -685,6 +685,187 @@
     border-top: 1px solid rgba(74,48,16,0.4);
     margin: 8px 0;
   }
+
+  /* ── LEADERBOARD MODAL ───────────────────────────────────── */
+  #leaderboard-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  #leaderboard-modal.show { display: flex; }
+
+  .lb-panel {
+    background: linear-gradient(135deg, #150900, #0a0400);
+    border: 2px solid var(--dark-gold);
+    border-radius: 12px;
+    padding: 28px 24px;
+    max-width: 580px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .lb-panel::-webkit-scrollbar { width: 4px; }
+  .lb-panel::-webkit-scrollbar-thumb { background: #4a3010; border-radius: 2px; }
+
+  .lb-panel h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 12px rgba(201,162,39,0.3);
+  }
+
+  .lb-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+
+  .lb-table th {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--dark-gold);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .lb-table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid rgba(74,48,16,0.25);
+    color: #d4b896;
+    vertical-align: middle;
+  }
+
+  .lb-table tr:last-child td { border-bottom: none; }
+  .lb-table tbody tr:hover td { background: rgba(201,162,39,0.05); }
+
+  .lb-new-entry td { background: rgba(201,162,39,0.1) !important; }
+
+  .lb-rank { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1em; }
+  .lb-rank.r1 { color: #ffd700; }
+  .lb-rank.r2 { color: #c0c0c0; }
+  .lb-rank.r3 { color: #cd7f32; }
+  .lb-rank.rn { color: #666; }
+
+  .lb-score { color: var(--gold); font-family: 'Cinzel', serif; font-weight: 700; }
+  .lb-won { font-size: 1.1em; }
+
+  .lb-empty {
+    text-align: center;
+    color: #555;
+    font-style: italic;
+    padding: 40px 0;
+    font-size: 0.95em;
+  }
+
+  /* ── NAME INPUT / SCORE ENTRY ────────────────────────────── */
+  #name-input-section {
+    display: none;
+    text-align: center;
+    padding: 30px 10px;
+    animation: fadeIn 0.4s ease;
+  }
+  #name-input-section.show { display: block; }
+
+  .ni-icon { font-size: 4em; margin-bottom: 10px; }
+
+  #end-title-mini {
+    font-family: 'Cinzel', serif;
+    font-size: 1.7em;
+    margin-bottom: 6px;
+  }
+
+  .score-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 14px auto;
+    max-width: 310px;
+    font-size: 0.9em;
+  }
+
+  .score-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 12px;
+    background: rgba(0,0,0,0.35);
+    border-radius: 4px;
+    color: #aa9070;
+  }
+
+  .score-line.total {
+    border-top: 1px solid var(--dark-gold);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.05em;
+    margin-top: 4px;
+    padding-top: 8px;
+  }
+
+  .splus { color: #44aa66; }
+
+  .ni-label {
+    display: block;
+    color: #a08060;
+    font-size: 0.88em;
+    margin-bottom: 10px;
+  }
+
+  #player-name-input {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--dark-gold);
+    border-radius: 6px;
+    color: var(--parchment);
+    font-family: 'Cinzel', serif;
+    font-size: 1.1em;
+    padding: 10px 16px;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  #player-name-input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 10px rgba(201,162,39,0.25);
+  }
+  #player-name-input::placeholder { color: #553; }
+
+  /* ── END RESULT SECTION ──────────────────────────────────── */
+  #end-result-section { display: none; text-align: center; animation: fadeIn 0.4s ease; }
+
+  #end-rank-msg {
+    display: none;
+    margin: 10px auto;
+    max-width: 360px;
+    padding: 10px 18px;
+    background: rgba(201,162,39,0.12);
+    border: 1px solid var(--dark-gold);
+    border-radius: 8px;
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 0.95em;
+  }
+
+  #end-leaderboard { margin-top: 24px; }
+
+  #end-leaderboard h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    text-shadow: 0 0 8px rgba(201,162,39,0.2);
+  }
+
+  .btn-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
 </style>
 </head>
 <body>
@@ -725,7 +906,10 @@
     </div>
     <p><em>Hai <strong>100 HP</strong>, <strong>3 pozioni</strong> e <strong>3 suggerimenti</strong>. Usali saggiamente!</em></p>
     <br>
-    <button class="btn btn-primary" onclick="startGame()">⚔️ Inizia l'Avventura</button>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="startGame()">⚔️ Inizia l'Avventura</button>
+      <button class="btn btn-secondary" onclick="showLeaderboardModal()">🏆 Classifica</button>
+    </div>
   </div>
 
   <!-- GAME AREA -->
@@ -803,15 +987,53 @@
   </div>
 
   <!-- END SCREEN -->
-  <div id="end-screen">
-    <div id="end-icon">💀</div>
-    <div id="end-title" style="color:#cc4444">Sconfitta!</div>
-    <div id="end-message"></div>
-    <div id="end-stats"></div>
-    <br>
-    <button class="btn btn-primary" onclick="restartGame()">🔄 Riprova</button>
+  <div id="end-screen" style="background:linear-gradient(135deg,rgba(20,10,5,.95),rgba(30,15,5,.9));border:2px solid var(--dark-gold);border-radius:12px;padding:30px 20px">
+
+    <!-- Step 1: inserisci nome -->
+    <div id="name-input-section">
+      <div class="ni-icon" id="end-icon-mini">💀</div>
+      <div id="end-title-mini">Sconfitta!</div>
+      <div id="end-score-breakdown"></div>
+      <span class="ni-label">Inserisci il tuo nome per salvare il punteggio:</span>
+      <input type="text" id="player-name-input" placeholder="Il tuo nome…" maxlength="20"
+             onkeydown="if(event.key==='Enter') submitScore()">
+      <div class="btn-row" style="margin-top:16px">
+        <button class="btn btn-primary" onclick="submitScore()">✅ Salva in classifica</button>
+        <button class="btn btn-secondary" onclick="skipScore()">↩ Salta</button>
+      </div>
+    </div>
+
+    <!-- Step 2: risultato + classifica -->
+    <div id="end-result-section">
+      <div id="end-icon" style="font-size:4em;margin-bottom:12px">💀</div>
+      <div id="end-title" style="font-family:'Cinzel',serif;font-size:1.8em;margin-bottom:10px">Sconfitta!</div>
+      <div id="end-message" style="color:#d4b896;margin-bottom:16px;line-height:1.7"></div>
+      <div id="end-stats" style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:10px 0"></div>
+      <div id="end-rank-msg"></div>
+      <div id="end-leaderboard">
+        <h3>🏆 Classifica dei Campioni</h3>
+        <div id="end-lb-table"></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="restartGame()">🔄 Riprova</button>
+        <button class="btn btn-secondary" onclick="showLeaderboardModal()">🏆 Classifica completa</button>
+      </div>
+    </div>
+
   </div>
 
+</div>
+
+<!-- LEADERBOARD MODAL -->
+<div id="leaderboard-modal">
+  <div class="lb-panel">
+    <h2>🏆 Classifica dei Campioni</h2>
+    <div id="lb-modal-content"></div>
+    <div class="btn-row" style="margin-top:20px">
+      <button class="btn btn-secondary" onclick="hideLeaderboardModal()">✕ Chiudi</button>
+      <button class="btn btn-danger" onclick="clearLeaderboard()" style="font-size:0.8em;padding:10px 16px">🗑 Azzera</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -882,129 +1104,381 @@ const ROOMS = [
   }
 ];
 
-// PROBLEMS per room (3 problems each, one chosen at random)
+// PROBLEMS per room — correct answer is ALWAYS at index 0 (shuffled before display)
 const PROBLEMS = [
-  // Room 0: Equazioni di secondo grado semplici
+  // ── STANZA 0: Equazioni di 2° grado semplici ──────────────────
   [
     {
-      text: "Il Goblin ti lancia una formula magica! Risolvi per sopravvivere:\n\nx² - 5x + 6 = 0",
+      text: "Il Goblin ti lancia una formula magica! Risolvi:\n\nx² - 5x + 6 = 0",
       answers: ["x = 2 e x = 3", "x = -2 e x = -3", "x = 1 e x = 6", "x = 2 e x = -3"],
       correct: 0,
-      hint: "Usa la formula quadratica: x = (5 ± √(25-24)) / 2 = (5 ± 1) / 2",
-      explanation: "Discriminante Δ = 25 - 24 = 1. Le soluzioni sono x = (5+1)/2 = 3 e x = (5-1)/2 = 2."
+      hint: "Cerca due numeri con somma 5 e prodotto 6.",
+      explanation: "2 e 3: somma=5, prodotto=6. Quindi x=2 e x=3."
     },
     {
-      text: "Il Goblin attacca! Risolvi l'equazione o perdi HP:\n\nx² - 7x + 12 = 0",
+      text: "Il Goblin attacca! Risolvi o perdi HP:\n\nx² - 7x + 12 = 0",
       answers: ["x = 3 e x = 4", "x = -3 e x = -4", "x = 2 e x = 6", "x = 1 e x = 12"],
       correct: 0,
-      hint: "Cerca due numeri la cui somma è 7 e il cui prodotto è 12.",
-      explanation: "I numeri 3 e 4: somma = 7, prodotto = 12. Quindi x = 3 e x = 4."
+      hint: "Cerca due numeri con somma 7 e prodotto 12.",
+      explanation: "3 e 4: somma=7, prodotto=12. Quindi x=3 e x=4."
     },
     {
       text: "Magia goblin! Risolvi prima che sia troppo tardi:\n\nx² - 9 = 0",
       answers: ["x = 3 e x = -3", "x = 9 e x = -9", "x = 3", "Nessuna soluzione reale"],
       correct: 0,
-      hint: "Questa è un'equazione binomia. Porta 9 a destra e fai la radice quadrata.",
-      explanation: "x² = 9 → x = ±√9 = ±3. Le soluzioni sono x = 3 e x = -3."
+      hint: "Equazione binomia: x² = 9, poi radice quadrata.",
+      explanation: "x² = 9 → x = ±3."
+    },
+    {
+      text: "Il Goblin sibila una formula! Risolvi:\n\nx² + 2x - 8 = 0",
+      answers: ["x = 2 e x = -4", "x = -2 e x = 4", "x = 4 e x = 2", "x = 1 e x = -8"],
+      correct: 0,
+      hint: "Δ = 4 + 32 = 36. x = (-2 ± 6) / 2.",
+      explanation: "x = (-2+6)/2 = 2 oppure x = (-2-6)/2 = -4."
+    },
+    {
+      text: "Il Goblin si trasforma! Risolvi:\n\nx² - 6x + 9 = 0",
+      answers: ["x = 3 (soluzione doppia)", "x = 3 e x = -3", "x = 6 e x = -1", "Nessuna soluzione reale"],
+      correct: 0,
+      hint: "Δ = 36 - 36 = 0. Discriminante nullo → soluzione doppia.",
+      explanation: "Δ = 0 → x = 6/2 = 3 (doppia). Oppure: (x-3)² = 0."
+    },
+    {
+      text: "Ultimo attacco del Goblin! Risolvi:\n\nx² - 1 = 0",
+      answers: ["x = 1 e x = -1", "x = 1", "x = -1", "x = 0"],
+      correct: 0,
+      hint: "Differenza di quadrati: (x-1)(x+1) = 0.",
+      explanation: "(x-1)(x+1) = 0 → x = 1 oppure x = -1."
     }
   ],
-  // Room 1: Equazioni di secondo grado medie
+  // ── STANZA 1: Equazioni di 2° grado con coefficienti ──────────
   [
     {
-      text: "Lo Scheletro alzò un osso segnato con segni matematici. Risolvi:\n\n2x² - 3x - 2 = 0",
+      text: "Lo Scheletro alza un osso segnato! Risolvi:\n\n2x² - 3x - 2 = 0",
       answers: ["x = 2 e x = -1/2", "x = -2 e x = 1/2", "x = 1 e x = -1", "x = 3 e x = -2"],
       correct: 0,
-      hint: "Δ = 9 + 16 = 25. Applica la formula: x = (3 ± 5) / 4",
-      explanation: "Δ = 9 + 16 = 25. x = (3+5)/4 = 2 oppure x = (3-5)/4 = -1/2."
+      hint: "Δ = 9 + 16 = 25. x = (3 ± 5) / 4.",
+      explanation: "Δ = 25. x = (3+5)/4 = 2 oppure x = (3-5)/4 = -1/2."
     },
     {
-      text: "Lo Scheletro tintinna le ossa! Risolvi o subisci il suo attacco:\n\n3x² + x - 2 = 0",
+      text: "Lo Scheletro tintinna le ossa! Risolvi:\n\n3x² + x - 2 = 0",
       answers: ["x = 2/3 e x = -1", "x = -2/3 e x = 1", "x = 1/3 e x = -2", "x = 2 e x = -1/3"],
       correct: 0,
-      hint: "Δ = 1 + 24 = 25. x = (-1 ± 5) / 6",
-      explanation: "Δ = 1 + 24 = 25. x = (-1+5)/6 = 2/3 oppure x = (-1-5)/6 = -1."
+      hint: "Δ = 1 + 24 = 25. x = (-1 ± 5) / 6.",
+      explanation: "Δ = 25. x = (-1+5)/6 = 2/3 oppure x = (-1-5)/6 = -1."
     },
     {
-      text: "Le ossa dello scheletro formano una formula! Risolvi:\n\nx² + 4x + 4 = 0",
+      text: "Le ossa dello scheletro formano una formula:\n\nx² + 4x + 4 = 0",
       answers: ["x = -2 (soluzione doppia)", "x = 2 e x = -2", "x = -4 e x = 0", "Nessuna soluzione reale"],
       correct: 0,
-      hint: "Δ = 16 - 16 = 0. Quando il discriminante è zero c'è una soluzione doppia.",
-      explanation: "Δ = 16 - 16 = 0. x = -4/2 = -2 (soluzione doppia). Oppure: (x+2)² = 0."
+      hint: "Δ = 16 - 16 = 0. Soluzione doppia.",
+      explanation: "Δ = 0 → x = -4/2 = -2 (doppia). Oppure: (x+2)² = 0."
+    },
+    {
+      text: "Lo Scheletro lancia un osso matematico! Risolvi:\n\n2x² - 5x + 3 = 0",
+      answers: ["x = 1 e x = 3/2", "x = -1 e x = -3/2", "x = 3 e x = 1/2", "x = 2 e x = 3"],
+      correct: 0,
+      hint: "Δ = 25 - 24 = 1. x = (5 ± 1) / 4.",
+      explanation: "Δ = 1. x = (5+1)/4 = 3/2 oppure x = (5-1)/4 = 1."
+    },
+    {
+      text: "Lo Scheletro si rianima! Risolvi:\n\n4x² - 1 = 0",
+      answers: ["x = 1/2 e x = -1/2", "x = 1 e x = -1", "x = 1/4 e x = -1/4", "x = 2 e x = -2"],
+      correct: 0,
+      hint: "Differenza di quadrati: (2x-1)(2x+1) = 0.",
+      explanation: "(2x-1)(2x+1) = 0 → x = ±1/2."
+    },
+    {
+      text: "L'ultimo osso dello scheletro! Risolvi:\n\nx² - 3x - 10 = 0",
+      answers: ["x = 5 e x = -2", "x = -5 e x = 2", "x = 10 e x = -1", "x = 2 e x = -5"],
+      correct: 0,
+      hint: "Cerca due numeri con somma 3 e prodotto -10.",
+      explanation: "5 e -2: 5+(-2)=3, 5·(-2)=-10. Quindi x=5 e x=-2."
     }
   ],
-  // Room 2: Disequazioni
+  // ── STANZA 2: Disequazioni di 2° grado ────────────────────────
   [
     {
-      text: "La Mummia avvolge le sue bende! Per liberarti, risolvi la disequazione:\n\nx² - 4 > 0",
+      text: "La Mummia avvolge le sue bende! Risolvi:\n\nx² - 4 > 0",
       answers: ["x < -2 oppure x > 2", "-2 < x < 2", "x > 2", "x < -2"],
       correct: 0,
-      hint: "Trova gli zeri: x = ±2. Il coefficiente di x² è positivo, quindi la parabola è concava verso l'alto.",
-      explanation: "x² - 4 = (x-2)(x+2). La parabola è > 0 fuori dalle radici: x < -2 oppure x > 2."
+      hint: "Zeri: x = ±2. Parabola concava verso l'alto → positiva fuori dagli zeri.",
+      explanation: "(x-2)(x+2) > 0 → x < -2 oppure x > 2."
     },
     {
-      text: "La Mummia stringe! Risolvi per spezzare le sue bende:\n\nx² - x - 6 ≤ 0",
+      text: "La Mummia stringe! Risolvi:\n\nx² - x - 6 ≤ 0",
       answers: ["-2 ≤ x ≤ 3", "x ≤ -2 oppure x ≥ 3", "-3 ≤ x ≤ 2", "x ≤ -3 oppure x ≥ 2"],
       correct: 0,
-      hint: "Prima risolvi x² - x - 6 = 0. Le radici sono x = 3 e x = -2.",
-      explanation: "Le radici sono x = 3 e x = -2. Poiché il coefficiente di x² > 0, la parabola è ≤ 0 tra le radici."
+      hint: "Risolvi prima x² - x - 6 = 0. Radici: x = 3 e x = -2.",
+      explanation: "Radici x=-2 e x=3. Parabola ≤ 0 tra le radici: -2 ≤ x ≤ 3."
     },
     {
-      text: "I geroglifici matematici brillano! Risolvi la disequazione:\n\n2x² - 8 < 0",
+      text: "I geroglifici brillano! Risolvi:\n\n2x² - 8 < 0",
       answers: ["-2 < x < 2", "x < -2 oppure x > 2", "x > 0", "Nessuna soluzione"],
       correct: 0,
-      hint: "Dividi per 2: x² - 4 < 0. Poi fattorizza: (x-2)(x+2) < 0.",
-      explanation: "2x² < 8 → x² < 4 → -2 < x < 2. La parabola è negativa tra le radici -2 e 2."
-    }
-  ],
-  // Room 3: Sistemi di equazioni
-  [
-    {
-      text: "Il Demone apre due portali di realtà! Risolvi il sistema per chiuderli:\n\n{ x + y = 5\n{ x - y = 1",
-      answers: ["x = 3, y = 2", "x = 2, y = 3", "x = 4, y = 1", "x = 1, y = 4"],
-      correct: 0,
-      hint: "Somma le due equazioni: 2x = 6 → x = 3. Poi sostituisci.",
-      explanation: "Sommando: 2x = 6 → x = 3. Sostituendo: 3 + y = 5 → y = 2."
+      hint: "Dividi per 2: x² - 4 < 0 → (x-2)(x+2) < 0.",
+      explanation: "x² < 4 → -2 < x < 2."
     },
     {
-      text: "Il Demone ti intrappola! Risolvi il sistema per fuggire:\n\n{ 2x + y = 7\n{ x - y = 2",
+      text: "La Mummia lancia bende avvelenate! Risolvi:\n\nx² - 2x - 3 ≥ 0",
+      answers: ["x ≤ -1 oppure x ≥ 3", "-1 ≤ x ≤ 3", "x ≥ 3", "x ≤ -1"],
+      correct: 0,
+      hint: "Radici: x = 3 e x = -1. Parabola ≥ 0 fuori o sulle radici.",
+      explanation: "(x-3)(x+1) ≥ 0 → x ≤ -1 oppure x ≥ 3."
+    },
+    {
+      text: "Magia mummia! Risolvi:\n\nx² + x - 2 < 0",
+      answers: ["-2 < x < 1", "x < -2 oppure x > 1", "-1 < x < 2", "x > -2"],
+      correct: 0,
+      hint: "Radici di x² + x - 2 = 0: x = 1 e x = -2.",
+      explanation: "(x+2)(x-1) < 0 → negativo tra le radici: -2 < x < 1."
+    },
+    {
+      text: "L'attacco finale della Mummia! Risolvi:\n\nx² - 5x + 4 ≤ 0",
+      answers: ["1 ≤ x ≤ 4", "x ≤ 1 oppure x ≥ 4", "0 ≤ x ≤ 5", "-4 ≤ x ≤ -1"],
+      correct: 0,
+      hint: "Radici: x = 1 e x = 4. Parabola ≤ 0 tra le radici.",
+      explanation: "(x-1)(x-4) ≤ 0 → 1 ≤ x ≤ 4."
+    }
+  ],
+  // ── STANZA 3: Sistemi di equazioni lineari ─────────────────────
+  [
+    {
+      text: "Il Demone apre due portali di realtà! Risolvi:\n\n{ x + y = 5\n{ x - y = 1",
+      answers: ["x = 3, y = 2", "x = 2, y = 3", "x = 4, y = 1", "x = 1, y = 4"],
+      correct: 0,
+      hint: "Somma le due equazioni: 2x = 6 → x = 3.",
+      explanation: "2x = 6 → x = 3. Poi: 3 + y = 5 → y = 2."
+    },
+    {
+      text: "Il Demone ti intrappola! Risolvi:\n\n{ 2x + y = 7\n{ x - y = 2",
       answers: ["x = 3, y = 1", "x = 1, y = 5", "x = 2, y = 3", "x = 4, y = -1"],
       correct: 0,
       hint: "Somma le equazioni per eliminare y: 3x = 9.",
-      explanation: "Sommando: 3x = 9 → x = 3. Sostituendo: 3 - y = 2 → y = 1."
+      explanation: "3x = 9 → x = 3. Poi: 3 - y = 2 → y = 1."
     },
     {
-      text: "Il Demone scatena tutta la sua magia! Risolvi:\n\n{ 3x + 2y = 12\n{ x + y = 5",
+      text: "Il Demone scatena magia! Risolvi:\n\n{ 3x + 2y = 12\n{ x + y = 5",
       answers: ["x = 2, y = 3", "x = 3, y = 2", "x = 4, y = 0", "x = 1, y = 4"],
       correct: 0,
-      hint: "Moltiplica la seconda equazione per 2: 2x + 2y = 10. Poi sottrai dalla prima.",
-      explanation: "3x + 2y = 12 e 2x + 2y = 10. Sottraendo: x = 2. Quindi y = 5 - 2 = 3."
+      hint: "Moltiplica la seconda per 2: 2x+2y=10. Sottrai dalla prima.",
+      explanation: "x = 12 - 10 = 2. Poi: 2 + y = 5 → y = 3."
+    },
+    {
+      text: "Il Demone crea illusioni! Risolvi:\n\n{ 4x - y = 7\n{ 2x + y = 5",
+      answers: ["x = 2, y = 1", "x = 1, y = 3", "x = 3, y = 5", "x = 2, y = -1"],
+      correct: 0,
+      hint: "Somma le equazioni: 6x = 12 → x = 2.",
+      explanation: "6x = 12 → x = 2. Poi: 4(2) - y = 7 → y = 1."
+    },
+    {
+      text: "Il Demone moltiplica sé stesso! Risolvi:\n\n{ x + 2y = 7\n{ 3x - y = 7",
+      answers: ["x = 3, y = 2", "x = 2, y = 3", "x = 1, y = 3", "x = 7, y = 0"],
+      correct: 0,
+      hint: "Moltiplica la seconda per 2 e somma alla prima: 7x = 21.",
+      explanation: "7x = 21 → x = 3. Poi: 3 + 2y = 7 → y = 2."
+    },
+    {
+      text: "La forma finale del Demone! Risolvi:\n\n{ 3x - 2y = 1\n{ x + y = 7",
+      answers: ["x = 3, y = 4", "x = 4, y = 3", "x = 1, y = 6", "x = 2, y = 5"],
+      correct: 0,
+      hint: "Dalla seconda: x = 7 - y. Sostituisci nella prima.",
+      explanation: "3(7-y) - 2y = 1 → 21 - 5y = 1 → y = 4. Poi x = 3."
     }
   ],
-  // Room 4: Boss - misto difficile
+  // ── STANZA 4: Boss — misto difficile ──────────────────────────
   [
     {
-      text: "🐉 Il Drago rugge! Solo la mente più acuta può sconfiggerlo!\n\nRisolvi il sistema:\n{ x² + y = 5\n{ x + y = 3",
-      answers: ["x = 2, y = 1  oppure  x = -1, y = 4", "x = 1, y = 2  oppure  x = 4, y = -1", "x = 2, y = 3", "Nessuna soluzione"],
+      text: "🐉 Il Drago rugge! Risolvi il sistema misto:\n\n{ x² + y = 5\n{ x + y = 3",
+      answers: ["x=2,y=1  oppure  x=-1,y=4", "x=1,y=2  oppure  x=4,y=-1", "x=2,y=3", "Nessuna soluzione"],
       correct: 0,
-      hint: "Dalla seconda: y = 3 - x. Sostituisci nella prima: x² + 3 - x = 5 → x² - x - 2 = 0.",
-      explanation: "y = 3 - x → x² + 3 - x = 5 → x² - x - 2 = 0 → (x-2)(x+1) = 0 → x=2,y=1 oppure x=-1,y=4."
+      hint: "Dalla seconda: y = 3 - x. Sostituisci nella prima: x² - x - 2 = 0.",
+      explanation: "y=3-x → x²+3-x=5 → x²-x-2=0 → x=2,y=1 oppure x=-1,y=4."
     },
     {
-      text: "🐉 Il Drago sputa fuoco matematico! Risolvi la disequazione di secondo grado:\n\nx² - 5x + 6 > 0",
+      text: "🐉 Il Drago sputa fuoco matematico! Risolvi:\n\nx² - 5x + 6 > 0",
       answers: ["x < 2 oppure x > 3", "2 < x < 3", "x > 3", "x < 2"],
       correct: 0,
-      hint: "Le radici sono x = 2 e x = 3. La parabola è concava verso l'alto (coeff. positivo).",
-      explanation: "x² - 5x + 6 = (x-2)(x-3) > 0. La parabola è positiva fuori dalle radici: x < 2 oppure x > 3."
+      hint: "Radici: x=2 e x=3. Parabola positiva fuori dalle radici.",
+      explanation: "(x-2)(x-3) > 0 → x < 2 oppure x > 3."
     },
     {
-      text: "🐉 L'attacco finale del Drago! Risolvi:\n\nx⁴ - 5x² + 4 = 0\n(Sostituisci t = x²)",
+      text: "🐉 Attacco del Drago! Risolvi (poni t = x²):\n\nx⁴ - 5x² + 4 = 0",
       answers: ["x = ±1 e x = ±2", "x = 1 e x = 2", "x = ±2 e x = ±4", "x = ±1 e x = ±4"],
       correct: 0,
-      hint: "Poni t = x²: t² - 5t + 4 = 0. Risolvi come normale equazione di 2° grado in t.",
-      explanation: "t² - 5t + 4 = (t-1)(t-4) = 0 → t=1 o t=4. t=x²=1 → x=±1; t=x²=4 → x=±2."
+      hint: "t = x²: t² - 5t + 4 = 0 → (t-1)(t-4) = 0.",
+      explanation: "t=1 → x=±1; t=4 → x=±2."
+    },
+    {
+      text: "🐉 Il Drago usa magia antica! Risolvi il sistema:\n\n{ x² - y = 3\n{ x - y = 1",
+      answers: ["x=2,y=1  oppure  x=-1,y=-2", "x=1,y=0  oppure  x=3,y=2", "x=2,y=3", "Nessuna soluzione reale"],
+      correct: 0,
+      hint: "Dalla seconda: y = x - 1. Sostituisci nella prima: x² - x - 2 = 0.",
+      explanation: "y=x-1 → x²-(x-1)=3 → x²-x-2=0 → x=2,y=1 oppure x=-1,y=-2."
+    },
+    {
+      text: "🐉 Soffio di fuoco del Drago! Risolvi (poni t = x²):\n\nx⁴ - 13x² + 36 = 0",
+      answers: ["x = ±2 e x = ±3", "x = 2 e x = 3", "x = ±4 e x = ±9", "x = ±1 e x = ±6"],
+      correct: 0,
+      hint: "t = x²: t² - 13t + 36 = 0. Δ = 169 - 144 = 25.",
+      explanation: "t = (13±5)/2 → t=9 o t=4. x²=9 → x=±3; x²=4 → x=±2."
+    },
+    {
+      text: "🐉 L'attacco finale del Drago! Risolvi la disequazione:\n\nx² - 4x + 3 < 0",
+      answers: ["1 < x < 3", "x < 1 oppure x > 3", "x > 1", "-3 < x < -1"],
+      correct: 0,
+      hint: "Radici: x = 1 e x = 3. Parabola negativa tra le radici.",
+      explanation: "(x-1)(x-3) < 0 → 1 < x < 3."
     }
   ]
 ];
+
+// ── Generatori procedurali per infinita varietà ────────────────
+function rndInt(min, max) { return Math.floor(Math.random() * (max - min)) + min; }
+
+function mcdCalc(a, b) { return b === 0 ? a : mcdCalc(b, a % b); }
+
+function fracStr(num, den) {
+  if (den === 1) return String(num);
+  if (num % den === 0) return String(num / den);
+  const g = mcdCalc(Math.abs(num), Math.abs(den));
+  if (den < 0) { num = -num; den = -den; }
+  return (num / g) + '/' + (den / g);
+}
+
+function termStr(coef, varName, first) {
+  if (coef === 0) return '';
+  const sign = coef > 0 ? (first ? '' : ' + ') : (first ? '-' : ' - ');
+  const abs = Math.abs(coef);
+  const c = (abs === 1 && varName) ? '' : String(abs);
+  return sign + c + (varName || '');
+}
+
+function genRoom0() {
+  let a, b;
+  do { a = rndInt(1, 7); b = rndInt(1, 7); } while (a === b);
+  const B = a + b, C = a * b;
+  const eq = `x² ${termStr(-B, 'x', false)} ${termStr(C, '', false)} = 0`;
+  return {
+    text: `Il Goblin lancia una formula nuova! Risolvi:\n\n${eq}`,
+    answers: [`x = ${a} e x = ${b}`, `x = -${a} e x = -${b}`, `x = ${a+1} e x = ${b-1}`, `x = ${B} e x = 1`],
+    correct: 0,
+    hint: `Cerca due numeri con somma ${B} e prodotto ${C}.`,
+    explanation: `${a} e ${b}: somma=${B}, prodotto=${C}.`
+  };
+}
+
+function genRoom1() {
+  // Form: n*(x - p)*(x - q) = 0, n ∈ {2,3}, p ∈ integers, q = fraction a/n
+  const n = rndInt(2, 4);
+  const q = rndInt(1, 6); // integer root
+  const a = rndInt(1, 6) * (Math.random() > 0.5 ? 1 : -1); // numerator of other root a/n
+  // Equation: n*x² - (n*q + a)*x + a*q = 0
+  const Bcoef = -(n * q + a);
+  const Ccoef = a * q;
+  const delta = Bcoef * Bcoef - 4 * n * Ccoef;
+  if (delta < 0) return genRoom1(); // retry
+  const sol1 = fracStr(a, n);
+  const sol2 = String(q);
+  const Bstr = Bcoef >= 0 ? ` + ${Bcoef === 1 ? '' : Bcoef}x` : ` - ${Math.abs(Bcoef) === 1 ? '' : Math.abs(Bcoef)}x`;
+  const Cstr = Ccoef >= 0 ? ` + ${Ccoef}` : ` - ${Math.abs(Ccoef)}`;
+  const eq = `${n}x²${Bstr}${Cstr} = 0`;
+  return {
+    text: `Lo Scheletro attacca con numeri frazionari! Risolvi:\n\n${eq}`,
+    answers: [`x = ${sol1} e x = ${sol2}`, `x = -${sol1} e x = -${sol2}`,
+              `x = ${sol2} e x = ${fracStr(a+1, n)}`, `Nessuna soluzione reale`],
+    correct: 0,
+    hint: `Δ = ${delta}. Applica la formula con a=${n}, b=${Bcoef}, c=${Ccoef}.`,
+    explanation: `Le soluzioni sono x = ${sol1} e x = ${sol2}.`
+  };
+}
+
+function genRoom2() {
+  const r1 = rndInt(-4, 4), r2 = rndInt(r1 + 1, r1 + 6); // r1 < r2, roots
+  const ops = [
+    { sym: '> 0',  sol: `x < ${r1} oppure x > ${r2}`, w1: `${r1} < x < ${r2}`,        w2: `x > ${r2}`,       w3: `x < ${r1}` },
+    { sym: '< 0',  sol: `${r1} < x < ${r2}`,           w1: `x < ${r1} oppure x > ${r2}`, w2: `x < ${r2}`,     w3: `x > ${r1}` },
+    { sym: '≥ 0',  sol: `x ≤ ${r1} oppure x ≥ ${r2}`, w1: `${r1} ≤ x ≤ ${r2}`,        w2: `x ≥ ${r2}`,      w3: `x ≤ ${r1}` },
+    { sym: '≤ 0',  sol: `${r1} ≤ x ≤ ${r2}`,           w1: `x ≤ ${r1} oppure x ≥ ${r2}`, w2: `x ≤ ${r2}`,    w3: `x ≥ ${r1}` }
+  ];
+  const o = ops[rndInt(0, 4)];
+  const Bcoef = -(r1 + r2);
+  const Ccoef = r1 * r2;
+  const Bstr = Bcoef === 0 ? '' : (Bcoef > 0 ? ` + ${Bcoef}x` : ` - ${Math.abs(Bcoef)}x`);
+  const Cstr = Ccoef === 0 ? '' : (Ccoef > 0 ? ` + ${Ccoef}` : ` - ${Math.abs(Ccoef)}`);
+  return {
+    text: `La Mummia lancia un incantesimo! Risolvi:\n\nx²${Bstr}${Cstr} ${o.sym}`,
+    answers: [o.sol, o.w1, o.w2, o.w3],
+    correct: 0,
+    hint: `Radici dell'equazione associata: x = ${r1} e x = ${r2}. Parabola con coeff. positivo.`,
+    explanation: `Radici: ${r1} e ${r2}. ${o.sym.includes('>') ? 'Positiva fuori' : 'Negativa tra'} le radici.`
+  };
+}
+
+function genRoom3() {
+  const x0 = rndInt(1, 5), y0 = rndInt(1, 5);
+  const a1 = rndInt(1, 3), b1 = rndInt(1, 3);
+  const c1 = a1 * x0 + b1 * y0;
+  let a2, b2, c2;
+  do {
+    a2 = rndInt(1, 4);
+    b2 = rndInt(-3, 4);
+    c2 = a2 * x0 + b2 * y0;
+  } while (b2 === 0 || a1 * b2 === a2 * b1);
+  const a1s = a1 === 1 ? '' : a1;
+  const b1s = b1 === 1 ? '' : b1;
+  const a2s = a2 === 1 ? '' : a2;
+  const b2s = Math.abs(b2) === 1 ? '' : Math.abs(b2);
+  const b2sign = b2 > 0 ? '+' : '-';
+  const eq1 = `${a1s}x + ${b1s}y = ${c1}`;
+  const eq2 = `${a2s}x ${b2sign} ${b2s}y = ${c2}`;
+  return {
+    text: `Il Demone apre un portale dimensionale! Risolvi:\n\n{ ${eq1}\n{ ${eq2}`,
+    answers: [`x = ${x0}, y = ${y0}`, `x = ${x0+1}, y = ${y0}`, `x = ${x0}, y = ${y0+1}`, `x = ${y0}, y = ${x0}`],
+    correct: 0,
+    hint: `Prova a eliminare una variabile moltiplicando un'equazione per un coefficiente opportuno.`,
+    explanation: `La soluzione è x = ${x0}, y = ${y0}. Verifica: sostituisci in entrambe le equazioni.`
+  };
+}
+
+function genRoom4() {
+  const a = rndInt(1, 4), b = rndInt(a + 1, a + 4);
+  const coefB = a * a + b * b, coefC = a * a * b * b;
+  return {
+    text: `🐉 Il Drago genera una formula biquadratica! Risolvi (poni t = x²):\n\nx⁴ - ${coefB}x² + ${coefC} = 0`,
+    answers: [`x = ±${a} e x = ±${b}`, `x = ${a} e x = ${b}`, `x = ±${a+b} e x = ±${Math.abs(b-a)}`, `x = ±${a*b}`],
+    correct: 0,
+    hint: `t = x²: t² - ${coefB}t + ${coefC} = 0. Le radici in t sono ${a*a} e ${b*b}.`,
+    explanation: `t=${a*a} → x=±${a}; t=${b*b} → x=±${b}.`
+  };
+}
+
+// Shuffle answer options keeping track of the correct one
+function shuffleAnswers(prob) {
+  const correctText = prob.answers[prob.correct];
+  const arr = [...prob.answers];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return { ...prob, answers: arr, correct: arr.indexOf(correctText) };
+}
+
+// Pick next problem: static pool first (no repeats), then procedural
+function getNextProblem(roomIdx) {
+  const pool = PROBLEMS[roomIdx];
+  const unused = pool.filter(p => !state.usedProblems.includes(p.text));
+  let prob;
+  if (unused.length > 0) {
+    prob = unused[Math.floor(Math.random() * unused.length)];
+    state.usedProblems.push(prob.text);
+  } else {
+    const generators = [genRoom0, genRoom1, genRoom2, genRoom3, genRoom4];
+    prob = generators[roomIdx]();
+    // Don't track procedural (always unique)
+  }
+  return shuffleAnswers(prob);
+}
 
 // ============================================================
 // GAME STATE
@@ -1117,7 +1591,7 @@ function startGame() {
     currentRoom: 0, completedRooms: [], wins: 0,
     totalAnswers: 0, correctAnswers: 0,
     currentProblem: null, phase: 'explore', answerLocked: false,
-    hintUsedThisRound: false
+    hintUsedThisRound: false, usedProblems: []
   };
   updateStatus();
   enterRoom(0);
@@ -1125,10 +1599,10 @@ function startGame() {
 
 function restartGame() {
   $('end-screen').style.display = 'none';
-  $('end-screen').className = '';
+  $('name-input-section').classList.remove('show');
+  $('end-result-section').style.display = 'none';
   $('start-screen').style.display = 'block';
-  const ga = $('game-area');
-  ga.style.display = 'none';
+  $('game-area').style.display = 'none';
 }
 
 function enterRoom(roomIdx) {
@@ -1179,9 +1653,8 @@ function startCombat() {
 
   log('⚔️ ' + monster.name + ' appare! Preparati a combattere!', 'danger');
 
-  // Pick random problem
-  const pool = PROBLEMS[state.currentRoom];
-  state.currentProblem = pool[Math.floor(Math.random() * pool.length)];
+  // Pick next problem (no repeats, shuffled answers)
+  state.currentProblem = getNextProblem(state.currentRoom);
   state.hintUsedThisRound = false;
 
   showProblem();
@@ -1285,15 +1758,7 @@ function submitAnswer(idx, btn) {
       setTimeout(() => {
         hideFeedback();
         $('monster-hp-bar').style.width = '100%';
-        const pool = PROBLEMS[state.currentRoom];
-        let newProb = pool[Math.floor(Math.random() * pool.length)];
-        // Try to pick a different one
-        let attempts = 0;
-        while (newProb === state.currentProblem && attempts < 5) {
-          newProb = pool[Math.floor(Math.random() * pool.length)];
-          attempts++;
-        }
-        state.currentProblem = newProb;
+        state.currentProblem = getNextProblem(state.currentRoom);
         state.hintUsedThisRound = false;
         showProblem();
         log('🔄 Il mostro attacca di nuovo con un nuovo problema!', 'info');
@@ -1349,41 +1814,171 @@ function usePotion() {
 function triggerVictory() {
   state.phase = 'victory';
   $('game-area').style.display = 'none';
-  const es = $('end-screen');
-  es.style.display = 'block';
-  es.className = 'show';
-  $('end-icon').textContent = '🏆';
-  $('end-title').textContent = 'Vittoria!';
-  $('end-title').style.color = '#c9a227';
-  $('end-message').innerHTML =
-    'Incredibile, Eroe! Hai sconfitto il <strong>Drago Matematico</strong> e liberato il dungeon!<br>' +
-    'La tua padronanza della matematica è leggendaria. Le tue gesta saranno cantate per secoli!';
-  $('end-stats').innerHTML = `
-    <div class="stat-bubble"><div class="num">${state.score}</div><div class="lbl">Punti</div></div>
-    <div class="stat-bubble"><div class="num">${state.hp}</div><div class="lbl">HP Rimasti</div></div>
-    <div class="stat-bubble"><div class="num">${state.correctAnswers}/${state.totalAnswers}</div><div class="lbl">Precisione</div></div>
-    <div class="stat-bubble"><div class="num">${state.wins}/5</div><div class="lbl">Mostri</div></div>
-  `;
+  showEndNameInput(true);
 }
 
 function triggerGameOver() {
   state.phase = 'dead';
   $('game-area').style.display = 'none';
-  const es = $('end-screen');
-  es.style.display = 'block';
-  es.className = 'show';
-  $('end-icon').textContent = '💀';
-  $('end-title').textContent = 'Sconfitta!';
-  $('end-title').style.color = '#cc4444';
-  $('end-message').innerHTML =
-    'I tuoi HP sono scesi a zero nella <strong>' + ROOMS[state.currentRoom].name + '</strong>.<br>' +
-    'Il dungeon ha avuto la meglio su di te... Per ora. Studia ancora la matematica e riprova!';
+  showEndNameInput(false);
+}
+
+// ── PUNTEGGIO FINALE ─────────────────────────────────────────
+function calcFinalScore() {
+  const hpBonus    = state.hp;
+  const accBonus   = state.totalAnswers > 0
+    ? Math.round((state.correctAnswers / state.totalAnswers) * 100) : 0;
+  const victBonus  = state.phase === 'victory' ? 500 : 0;
+  const total      = state.score + hpBonus + accBonus + victBonus;
+  return { base: state.score, hpBonus, accBonus, victBonus, total };
+}
+
+// ── LEADERBOARD (localStorage) ───────────────────────────────
+const LB_KEY = 'dungeon_mat_lb_v1';
+const LB_MAX = 10;
+
+function loadLeaderboard() {
+  try { return JSON.parse(localStorage.getItem(LB_KEY)) || []; }
+  catch { return []; }
+}
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderLbTable(lb, highlightIdx) {
+  if (lb.length === 0)
+    return '<div class="lb-empty">Nessuna partita salvata. Sii il primo campione!</div>';
+
+  const medals = ['🥇','🥈','🥉'];
+  const rows = lb.map((e, i) => {
+    const rnk   = i < 3
+      ? `<span class="lb-rank r${i+1}">${medals[i]}</span>`
+      : `<span class="lb-rank rn">#${i+1}</span>`;
+    const won   = `<span class="lb-won">${e.won ? '🏆' : '💀'}</span>`;
+    const date  = new Date(e.date).toLocaleDateString('it-IT',
+                    {day:'2-digit',month:'2-digit',year:'2-digit'});
+    return `<tr class="${i === highlightIdx ? 'lb-new-entry' : ''}">
+      <td>${rnk}</td>
+      <td>${escHtml(e.name)}</td>
+      <td class="lb-score">${e.score}</td>
+      <td>${e.wins}/5 ${won}</td>
+      <td>${escHtml(e.accuracy)}</td>
+      <td style="color:#555;font-size:0.8em">${date}</td>
+    </tr>`;
+  }).join('');
+
+  return `<table class="lb-table">
+    <thead><tr>
+      <th>#</th><th>Nome</th><th>Punti</th><th>Stanze</th><th>Precisione</th><th>Data</th>
+    </tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+}
+
+// ── FLUSSO FINE PARTITA ───────────────────────────────────────
+let _pendingVictory = false;
+
+function showEndNameInput(isVictory) {
+  _pendingVictory = isVictory;
+  const sc = calcFinalScore();
+  state.score = sc.total; // aggiorna punteggio con bonus
+
+  const vitBonus = sc.victBonus > 0
+    ? `<div class="score-line"><span>Bonus vittoria 🏆</span><span class="splus">+${sc.victBonus}</span></div>` : '';
+  $('end-score-breakdown').innerHTML = `
+    <div class="score-breakdown">
+      <div class="score-line"><span>Punteggio base</span><span class="splus">+${sc.base}</span></div>
+      <div class="score-line"><span>Bonus HP rimasti</span><span class="splus">+${sc.hpBonus}</span></div>
+      <div class="score-line"><span>Bonus precisione</span><span class="splus">+${sc.accBonus}</span></div>
+      ${vitBonus}
+      <div class="score-line total"><span>Punteggio finale</span><span>${sc.total}</span></div>
+    </div>`;
+
+  $('end-icon-mini').textContent  = isVictory ? '🏆' : '💀';
+  $('end-title-mini').textContent = isVictory ? 'Vittoria!' : 'Sconfitta!';
+  $('end-title-mini').style.color = isVictory ? '#c9a227' : '#cc4444';
+  $('player-name-input').value = '';
+
+  $('end-screen').style.display = 'block';
+  $('name-input-section').classList.add('show');
+  $('end-result-section').style.display = 'none';
+
+  setTimeout(() => $('player-name-input').focus(), 150);
+}
+
+function submitScore() {
+  const name  = ($('player-name-input').value.trim() || 'Anonimo').slice(0, 20);
+  const acc   = state.totalAnswers > 0
+    ? `${state.correctAnswers}/${state.totalAnswers}` : '0/0';
+  const entry = {
+    name, score: state.score, won: _pendingVictory,
+    wins: state.wins, accuracy: acc, hp: state.hp,
+    date: new Date().toISOString()
+  };
+
+  const lb = loadLeaderboard();
+  lb.push(entry);
+  lb.sort((a, b) => b.score - a.score);
+  // Trova indice prima di tagliare
+  const newIdx = lb.findIndex(
+    e => e.name === entry.name && e.score === entry.score && e.date === entry.date
+  );
+  if (lb.length > LB_MAX) lb.splice(LB_MAX);
+  const finalIdx = lb.findIndex(
+    e => e.name === entry.name && e.score === entry.score && e.date === entry.date
+  );
+  localStorage.setItem(LB_KEY, JSON.stringify(lb));
+
+  showEndResult(_pendingVictory, finalIdx, lb);
+}
+
+function skipScore() {
+  // Mostra risultato senza salvare
+  showEndResult(_pendingVictory, -1, loadLeaderboard());
+}
+
+function showEndResult(isVictory, newIdx, lb) {
+  $('name-input-section').classList.remove('show');
+  $('end-result-section').style.display = 'block';
+
+  $('end-icon').textContent  = isVictory ? '🏆' : '💀';
+  $('end-title').textContent = isVictory ? 'Vittoria!' : 'Sconfitta!';
+  $('end-title').style.color = isVictory ? '#c9a227' : '#cc4444';
+
+  $('end-message').innerHTML = isVictory
+    ? 'Incredibile, Eroe! Hai sconfitto il <strong>Drago Matematico</strong> e liberato il dungeon!<br>La tua padronanza della matematica è leggendaria. Le tue gesta saranno cantate per secoli!'
+    : 'I tuoi HP sono scesi a zero nella <strong>' + ROOMS[state.currentRoom].name + '</strong>.<br>Il dungeon ha avuto la meglio su di te... Per ora. Studia ancora la matematica e riprova!';
+
   $('end-stats').innerHTML = `
-    <div class="stat-bubble"><div class="num">${state.score}</div><div class="lbl">Punti</div></div>
-    <div class="stat-bubble"><div class="num">${state.wins}/5</div><div class="lbl">Mostri</div></div>
+    <div class="stat-bubble"><div class="num">${state.score}</div><div class="lbl">Punti Totali</div></div>
+    <div class="stat-bubble"><div class="num">${state.hp}</div><div class="lbl">HP Rimasti</div></div>
     <div class="stat-bubble"><div class="num">${state.correctAnswers}/${state.totalAnswers}</div><div class="lbl">Precisione</div></div>
-    <div class="stat-bubble"><div class="num">${state.currentRoom + 1}</div><div class="lbl">Stanza</div></div>
-  `;
+    <div class="stat-bubble"><div class="num">${state.wins}/5</div><div class="lbl">Mostri</div></div>`;
+
+  const rankMsgs = ['🥇 Nuovo record! Sei al primo posto!','🥈 Secondo posto! Ottimo risultato!','🥉 Terzo posto! Ben fatto!'];
+  const rm = $('end-rank-msg');
+  if (newIdx >= 0 && newIdx < 3) { rm.textContent = rankMsgs[newIdx]; rm.style.display = 'block'; }
+  else if (newIdx >= 3)          { rm.textContent = `Sei al ${newIdx+1}° posto in classifica!`; rm.style.display = 'block'; }
+  else                           { rm.style.display = 'none'; }
+
+  $('end-lb-table').innerHTML = renderLbTable(lb, newIdx);
+}
+
+// ── MODAL CLASSIFICA (schermata iniziale) ─────────────────────
+function showLeaderboardModal() {
+  $('lb-modal-content').innerHTML = renderLbTable(loadLeaderboard(), -1);
+  $('leaderboard-modal').classList.add('show');
+}
+function hideLeaderboardModal() {
+  $('leaderboard-modal').classList.remove('show');
+}
+function clearLeaderboard() {
+  if (!confirm('Sei sicuro di voler azzerare tutta la classifica?')) return;
+  localStorage.removeItem(LB_KEY);
+  $('lb-modal-content').innerHTML = renderLbTable([], -1);
 }
 </script>
 </body>
